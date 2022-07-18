@@ -1,11 +1,11 @@
 import { useEffect } from "react";
-import Sidebar from "../components/Sidebar";
-import { fetchQuestion } from "../store/actions";
 import { useDispatch } from "react-redux";
+import Sidebar from "../components/Sidebar";
+import { questionWeekly } from "../store/actions";
 export default function Dashboard() {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchQuestion());
+    dispatch(questionWeekly());
   }, []);
   return (
     <div className="d-flex">

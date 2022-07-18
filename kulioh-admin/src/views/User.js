@@ -8,11 +8,13 @@ export default function User() {
   return (
     <div className="d-flex">
       <Sidebar />
-      {getNavigate ? (
-        <TableUser setNavigate={setNavigate} />
-      ) : (
-        <RegisterAdmin setNavigate={setNavigate} />
-      )}
+      <div id="user">
+        {getNavigate ? (
+          <TableUser setNavigate={setNavigate} />
+        ) : (
+          <RegisterAdmin setNavigate={setNavigate} />
+        )}
+      </div>
     </div>
   );
 }

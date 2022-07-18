@@ -5,7 +5,7 @@
   background-color: #11101d;
   padding: 6px 14px;
   transition: all 0.5s ease;
-  position: relative;
+  position: fixed;
 }
 .active {
   width: 240px;
@@ -63,7 +63,7 @@
   line-height: 50px;
   margin-left: -20px;
 }
-#sidebar.nonactive ul li .links_name {
+#sidebar.nonactive .links_name {
   display: none;
 }
 #sidebar ul li .tooltip {
@@ -200,42 +200,87 @@
   display: none;
 }
 #question {
-  overflow: scroll;
+  margin-top: 3%;
+  margin-left: 20%;
+  margin-right: 3%;
 }
 #question .input {
   background: #bababd;
   border-radius: 6px;
-  width: 42%;
+  width: 80%;
 }
 #question .btn-question {
   background: #06751e;
   color: white;
-  width: 42%;
+  width: 80%;
 }
 #question .img-header {
-  width: 700px;
-  position: "absolute";
-  margin-left: 45%;
-  margin-top: -30%;
+  width: 500px;
 }
 #question .img-header img {
-  width: 700px;
+  width: 400px;
   transition: all 0.5s ease;
 }
 #question .img-header:hover img:hover {
-  width: 1300px;
-  transform: translateX(-43%);
-}
-#question .answer img {
   width: 500px;
+  transform: translate3d(3%);
+}
+#register {
+  background: rgb(234, 236, 234);
+  border-radius: 10px;
+  margin: auto;
+  color: black;
+  margin-top: 50px;
+  padding: 10px;
+  align-items: center;
+  width: 60%;
+  height: 400px;
+  box-shadow: 26px 28px 11px -11px rgba(18, 18, 18, 0.75);
+  -webkit-box-shadow: 26px 28px 11px -11px rgba(18, 18, 18, 0.75);
+  -moz-box-shadow: 26px 28px 11px -11px rgba(18, 18, 18, 0.75);
+}
+#register a {
+  text-decoration: none;
+  color: black;
+}
+#register a:hover {
+  color: #3c3c41;
+}
+#register .btn-back {
+  margin-left: -60px;
+}
+#register form {
+  width: 80%;
+  margin: auto;
 }
 #register .eye {
   text-decoration: none;
-  color: #78787a;
+  /* color: black; */
   margin-right: -90px;
   transition: all 0.2s ease;
 }
 #register .eye:hover {
   transform: translateY(-8%);
-  color: #bababd;
+}
+#register form button {
+  background: #11101d;
+  color: #fff;
+}
+#create-question {
+  padding: 20px;
+  background: rgb(234, 236, 234);
+  width: auto;
+  display: flex;
+  border-radius: 10px;
+}
+#create-question .back {
+  text-decoration: none;
+  color: #11101d;
+}
+#create-question .back:hover {
+  color: #78787a;
+}
+#user {
+  width: 100%;
+  margin-left: 20%;
 }

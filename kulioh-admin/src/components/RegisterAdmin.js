@@ -1,20 +1,52 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { registerAdmin } from "../store/actions";
 
 export default function RegisterAdmin({ setNavigate }) {
   const [type, setType] = useState("password");
-  const handleRegister = (a) => {
-    a.preventDefault();
+  const dispatch = useDispatch();
+  const [dataUserAdmin, setDataUserAdmin] = useState({
+    email: "",
+    password: "",
+    name: "",
+  });
+  const changeData = (e) => {
+    setDataUserAdmin({ ...dataUserAdmin, [e.target.name]: e.target.value });
+  };
+  const handleRegister = (e) => {
+    e.preventDefault();
+    dispatch(registerAdmin(dataUserAdmin));
   };
   return (
-    <div style={{ width: "80%" }} id="register">
+    <div id="register">
       <div style={{ width: "80%", margin: "auto", marginTop: "20px" }}>
-        <button className="btn" onClick={() => setNavigate(true)}>
+        <a
+          href="#"
+          onClick={(a) => (a.preventDefault(), setNavigate(true))}
+          className="btn-back"
+        >
+          <i class="bx bxs-left-arrow-square"></i>
           Back
-        </button>
-        <form style={{ width: "50%" }} onSubmit={(a) => handleRegister(a)}>
+        </a>
+        <h3 style={{ textAlign: "center" }}>Register</h3>
+        <form onSubmit={(a) => handleRegister(a)}>
+          <div>
+            <label className="form-label">Name</label>
+            <input
+              type="text"
+              className="form-control"
+              name="name"
+              onChange={changeData}
+            />
+          </div>
           <div>
             <label className="form-label">Email</label>
-            <input type="text" className="form-control" />
+            <input
+              type="email"
+              className="form-control"
+              name="email"
+              onChange={changeData}
+            />
           </div>
           <div>
             <label className="form-label">Password</label>
@@ -23,6 +55,8 @@ export default function RegisterAdmin({ setNavigate }) {
                 type={type}
                 className="form-control"
                 style={{ marginRight: "18px" }}
+                name="password"
+                onChange={changeData}
               />
               {type === "password" ? (
                 <a
@@ -43,17 +77,9 @@ export default function RegisterAdmin({ setNavigate }) {
               )}
             </div>
           </div>
-          <div>
-            <label className="form-label">Name</label>
-            <input type="text" className="form-control" />
-          </div>
           <div style={{ marginTop: "10px" }}>
-            <button
-              type="submit"
-              className="btn btn-success"
-              style={{ width: "100%" }}
-            >
-              Register
+            <button type="submit" className="btn" style={{ width: "100%" }}>
+              Submit
             </button>
           </div>
         </form>
