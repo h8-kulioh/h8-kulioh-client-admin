@@ -1,13 +1,19 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 export default function Sidebar() {
   const [get, set] = useState("active");
+  const navigate = useNavigate();
+  const handleLogout = (e) => {
+    e.preventDefault();
+    localStorage.clear();
+    navigate("/login");
+  };
   return (
     <div id="sidebar" className={get}>
       <div className="logo_content d-flex">
         <div className="logo">
-          <i className="bx bxs-book"></i>
-          <div className="logo_name">Vinter</div>
+          <img src="/logo/VINTER.png" alt="" />
+          <div className="logo_name"> Vinter</div>
         </div>
         <i
           className="bx bx-menu"
@@ -34,9 +40,9 @@ export default function Sidebar() {
         <li>
           <Link to={"/users"} href="#">
             <i className="bx bx-user"></i>
-            <span className="links_name">User</span>
+            <span className="links_name">Register Admin</span>
           </Link>
-          <span className="tooltip">User</span>
+          <span className="tooltip">Register Admin</span>
         </li>
         <li>
           <Link to={"/question"} href="#">
@@ -69,7 +75,9 @@ export default function Sidebar() {
               <div className="job">Admin</div>
             </div>
           </div>
-          <i className="bx bx-log-out-circle" id="log_out"></i>
+          <a href="" onClick={(e) => handleLogout(e)}>
+            <i className="bx bx-log-out-circle" id="log_out"></i>
+          </a>
         </div>
       </div>
     </div>

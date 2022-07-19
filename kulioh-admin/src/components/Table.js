@@ -3,7 +3,7 @@ export default function Table({ type }) {
     <div>
       <p>List Question {type}</p>
       <table
-        className="table"
+        className="table table-hover"
         style={{ width: "85%", margin: "auto", marginRight: "50px" }}
       >
         <thead>

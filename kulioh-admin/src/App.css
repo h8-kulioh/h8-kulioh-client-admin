@@ -1,8 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=PT+Sans&family=Poppins:wght@100;200;300&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  background-color: #423f3e !important;
+}
 #sidebar {
   min-height: 100vh;
   top: 0;
   left: 0;
-  background-color: #11101d;
+  background-color: #171010;
   padding: 6px 14px;
   transition: all 0.5s ease;
   position: fixed;
@@ -20,7 +28,13 @@
   width: 100%;
   align-items: center;
   opacity: 0;
+  margin-top: 20px;
   transition: all 0.5s ease;
+}
+#sidebar .logo_content .logo img {
+  width: 50px;
+  height: 50px;
+  border-radius: 90px;
 }
 #sidebar.active .logo_content .logo {
   opacity: 1;
@@ -33,6 +47,7 @@
 .logo_content .logo .logo_name {
   font-size: 20px;
   font-weight: 400;
+  margin-left: 8px;
 }
 #sidebar #btn-sidebar {
   color: #fff;
@@ -105,7 +120,7 @@
 }
 #sidebar.active ul li input {
   border-radius: 12px;
-  background: #1d1b31;
+  background: #2b2b2b;
   left: 0;
   color: #fff;
 }
@@ -156,7 +171,7 @@
   position: relative;
   padding: 10px 6px;
   height: 60px;
-  background: #1d1b31;
+  background: #362222;
 }
 .profile_content .profile .profile_details {
   display: flex;
@@ -196,6 +211,13 @@
   font-size: 20px;
   border-radius: 12px;
 }
+.profile a {
+  text-decoration: none;
+  color: rgb(228, 32, 32);
+}
+.profile a:hover {
+  color: #78787a;
+}
 #sidebar.nonactive .profile #log_out {
   display: none;
 }
@@ -205,12 +227,12 @@
   margin-right: 3%;
 }
 #question .input {
-  background: #bababd;
-  border-radius: 6px;
+  background: rgba(255, 146, 7, 0.2);
+  border-radius: 4px;
   width: 80%;
 }
 #question .btn-question {
-  background: #06751e;
+  background: #1b7d30;
   color: white;
   width: 80%;
 }
@@ -219,6 +241,7 @@
 }
 #question .img-header img {
   width: 400px;
+  box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.25);
   transition: all 0.5s ease;
 }
 #question .img-header:hover img:hover {
@@ -226,18 +249,33 @@
   transform: translate3d(3%);
 }
 #register {
-  background: rgb(234, 236, 234);
+  background: #362222;
   border-radius: 10px;
   margin: auto;
-  color: black;
+  color: #fff;
   margin-top: 50px;
-  padding: 10px;
+  padding: 20px;
   align-items: center;
-  width: 60%;
-  height: 400px;
-  box-shadow: 26px 28px 11px -11px rgba(18, 18, 18, 0.75);
-  -webkit-box-shadow: 26px 28px 11px -11px rgba(18, 18, 18, 0.75);
-  -moz-box-shadow: 26px 28px 11px -11px rgba(18, 18, 18, 0.75);
+  width: 50%;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.24);
+}
+#register .register-box {
+  /* text-align: center; */
+  width: "80%";
+  margin-top: "20px";
+}
+#register .register-box .form-label {
+  margin-top: 10px;
+}
+#register .img-box {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+#register .img-box img {
+  width: 100px;
+  height: 100px;
+  border-radius: 90px;
 }
 #register a {
   text-decoration: none;
@@ -246,27 +284,39 @@
 #register a:hover {
   color: #3c3c41;
 }
-#register .btn-back {
-  margin-left: -60px;
-}
 #register form {
-  width: 80%;
+  width: 100%;
   margin: auto;
+}
+.password-box {
+  position: relative;
+  width: 100%;
 }
 .eye {
   text-decoration: none;
-  margin-right: -90px;
+  color: #11101d;
+  position: absolute;
+  top: 0;
+  right: 5px;
+  margin: 7.5px;
 }
-.eye:hover {
-  color: #3c3c41;
+.eye svg:hover {
+  stroke: #96969b;
 }
-#register form button {
-  background: #11101d;
+#register form .btn-box {
+  margin-bottom: 20px;
+}
+#register form .btn-box button {
+  background: #171010;
   color: #fff;
+}
+#register .checkbox {
+  border-radius: 90px;
 }
 #create-question {
   padding: 20px;
-  background: rgb(234, 236, 234);
+  background: #423f3e;
+  color: #fff;
   width: auto;
   display: flex;
   border-radius: 10px;
@@ -277,6 +327,12 @@
 }
 #create-question .back:hover {
   color: #78787a;
+}
+#create-question .date {
+  background: rgba(185, 189, 189, 0.3);
+  border-radius: 6px;
+  margin-left: 5px;
+  border-style: none;
 }
 #user {
   width: 100%;
@@ -298,4 +354,14 @@
 }
 #login h3 {
   margin-top: 10px;
+}
+.table-question {
+  color: #fff;
+}
+.table-question button {
+  background: #1b7d30;
+  color: #fff;
+}
+.table tr {
+  color: #fff;
 }

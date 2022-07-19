@@ -5,6 +5,7 @@ import Sidebar from "../components/Sidebar";
 import TableQuestion from "../components/TableQuestion";
 import { createQuestion } from "../store/actions";
 import * as XLSX from "xlsx";
+import Swal from "sweetalert2";
 
 export default function Question() {
   // const questions = useSelector((state) => state.questions.questions);
@@ -22,13 +23,23 @@ export default function Question() {
     const files = e.target[0].files;
     const date = e.target[1].value;
     setReleaseDate({ ...releaseDate, releaseDate: date });
-    // const Y = date.getFullYear()
-    // const M = date.getMonth()
-    // const D = date.getDay()
-    // const YMD = Y+M+D
+    if (!date) {
+      return Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please input release date!",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    }
     if (files.length === 0) {
-      alert("Please choose any file...");
-      return;
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please input file!",
+        showConfirmButton: false,
+        timer: 1500,
+      });
     }
     let filename = files[0].name;
     let extension = filename.substring(filename.lastIndexOf(".")).toUpperCase();

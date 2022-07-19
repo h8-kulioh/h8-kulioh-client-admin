@@ -9,11 +9,7 @@ export default function User() {
     <div className="d-flex">
       <Sidebar />
       <div id="user">
-        {getNavigate ? (
-          <TableUser setNavigate={setNavigate} />
-        ) : (
-          <RegisterAdmin setNavigate={setNavigate} page={"Register"} />
-        )}
+        <RegisterAdmin setNavigate={setNavigate} page={"Register"} />
       </div>
     </div>
   );

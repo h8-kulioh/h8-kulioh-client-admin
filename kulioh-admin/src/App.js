@@ -5,14 +5,42 @@ import Dashboard from "./views/Dashboard";
 import User from "./views/User";
 import Question from "./views/Question";
 import Login from "./views/Login";
+import Protected from "./protected/protect";
 function App() {
   return (
     <div className="App">
       <Routes>
         {<Route path="/login" element={<Login />} />}
-        {<Route path="/" element={<Dashboard />} />}
-        {<Route path="/users" element={<User />} />}
-        {<Route path="/question" element={<Question />} />}
+        {
+          <Route
+            path="/"
+            element={
+              <Protected>
+                <Dashboard />
+              </Protected>
+            }
+          />
+        }
+        {
+          <Route
+            path="/users"
+            element={
+              <Protected>
+                <User />
+              </Protected>
+            }
+          />
+        }
+        {
+          <Route
+            path="/question"
+            element={
+              <Protected>
+                <Question />
+              </Protected>
+            }
+          />
+        }
       </Routes>
     </div>
   );

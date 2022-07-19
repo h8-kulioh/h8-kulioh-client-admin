@@ -34,7 +34,12 @@ export default function CreateQuestion({
             <br />
             <div>
               <label>Release Date</label>
-              <input type="date" onChange={change} name="releaseDate" />
+              <input
+                type="date"
+                onChange={change}
+                name="releaseDate"
+                className="date"
+              />
             </div>
             <br />
             <button type="submit" className="btn btn-question">
