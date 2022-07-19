@@ -12,7 +12,7 @@ export default function User() {
         {getNavigate ? (
           <TableUser setNavigate={setNavigate} />
         ) : (
-          <RegisterAdmin setNavigate={setNavigate} />
+          <RegisterAdmin setNavigate={setNavigate} page={"Register"} />
         )}
       </div>
     </div>

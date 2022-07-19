@@ -1,4 +1,8 @@
-export default function CreateQuestion({ setNavigate, handleCreateQuestion }) {
+export default function CreateQuestion({
+  setNavigate,
+  handleCreateQuestion,
+  change,
+}) {
   return (
     <div id="create-question">
       <div
@@ -28,6 +32,10 @@ export default function CreateQuestion({ setNavigate, handleCreateQuestion }) {
               />
             </div>
             <br />
+            <div>
+              <label>Release Date</label>
+              <input type="date" onChange={change} name="releaseDate" />
+            </div>
             <br />
             <button type="submit" className="btn btn-question">
               Upload

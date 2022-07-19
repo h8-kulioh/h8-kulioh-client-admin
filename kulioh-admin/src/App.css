@@ -253,14 +253,12 @@
   width: 80%;
   margin: auto;
 }
-#register .eye {
+.eye {
   text-decoration: none;
-  /* color: black; */
   margin-right: -90px;
-  transition: all 0.2s ease;
 }
-#register .eye:hover {
-  transform: translateY(-8%);
+.eye:hover {
+  color: #3c3c41;
 }
 #register form button {
   background: #11101d;
@@ -283,4 +281,21 @@
 #user {
   width: 100%;
   margin-left: 20%;
+}
+#login {
+  /* background: #11101d;
+  color: #fff; */
+  /* width: 500px;
+  height: 400px; */
+  margin: auto;
+  /* margin-top: 8%;
+  border-radius: 15px;
+  text-align: center;
+  padding: 10px;
+  -webkit-box-shadow: 10px 13px 12px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 13px 12px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 13px 12px 0px rgba(0, 0, 0, 0.75); */
+}
+#login h3 {
+  margin-top: 10px;
 }

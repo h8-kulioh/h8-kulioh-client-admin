@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { registerAdmin } from "../store/actions";
 
-export default function RegisterAdmin({ setNavigate }) {
+export default function RegisterAdmin({ setNavigate, page }) {
   const [type, setType] = useState("password");
   const dispatch = useDispatch();
   const [dataUserAdmin, setDataUserAdmin] = useState({
@@ -15,20 +15,27 @@ export default function RegisterAdmin({ setNavigate }) {
   };
   const handleRegister = (e) => {
     e.preventDefault();
-    dispatch(registerAdmin(dataUserAdmin));
+    if (page === "Register") {
+      dispatch(registerAdmin(dataUserAdmin));
+    } else {
+    }
   };
   return (
     <div id="register">
       <div style={{ width: "80%", margin: "auto", marginTop: "20px" }}>
-        <a
-          href="#"
-          onClick={(a) => (a.preventDefault(), setNavigate(true))}
-          className="btn-back"
-        >
-          <i class="bx bxs-left-arrow-square"></i>
-          Back
-        </a>
-        <h3 style={{ textAlign: "center" }}>Register</h3>
+        {page === "Register" ? (
+          <a
+            href="#"
+            onClick={(a) => (a.preventDefault(), setNavigate(true))}
+            className="btn-back"
+          >
+            <i class="bx bxs-left-arrow-square"></i>
+            Back
+          </a>
+        ) : (
+          ""
+        )}
+        <h3 style={{ textAlign: "center" }}>{page}</h3>
         <form onSubmit={(a) => handleRegister(a)}>
           <div>
             <label className="form-label">Name</label>

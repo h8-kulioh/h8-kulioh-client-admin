@@ -3,12 +3,13 @@ import { FETCH_QUESTION, urlAdmin, urlWeeklyQuestion } from "./actionType";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 const MySwal = withReactContent(Swal);
-export const createQuestion = (data) => {
+export const createQuestion = (data, releaseDate) => {
   return async (dispatch) => {
     try {
-      console.log(data);
-      const response = await axios.post(urlWeeklyQuestion + "/user-answer", {
+      let date = releaseDate.releaseDate.split("-").join("/");
+      const response = await axios.post(urlAdmin + "/weekly-questions", {
         data,
+        date,
       });
       console.log(response);
     } catch (err) {
@@ -20,7 +21,8 @@ export const createQuestion = (data) => {
 export const registerAdmin = (data) => {
   return async () => {
     try {
-      await axios.post(urlAdmin + "/register", data);
+      const res = await axios.post(urlAdmin + "/register", data);
+      console.log(res.sta);
       MySwal.fire({
         position: "top-end",
         icon: "success",
@@ -34,16 +36,16 @@ export const registerAdmin = (data) => {
   };
 };
 
-export const questionWeekly = () => {
-  return async () => {
-    try {
-      const res = await axios.get(urlWeeklyQuestion + "/user-answer");
-      console.log(res);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-};
+// export const questionWeekly = () => {
+//   return async () => {
+//     try {
+//       const res = await axios.get(urlWeeklyQuestion + "/user-answer");
+//       console.log(res);
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   };
+// };
 // export const fetchQuestionSuccess = (payload) => {
 //   return {
 //     type: FETCH_QUESTION,
