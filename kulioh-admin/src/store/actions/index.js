@@ -68,6 +68,9 @@ export const questionDaily = () => {
 export const questionWeekly = (date) => {
   return async (dispatch) => {
     try {
+      if (!date) {
+        throw new Error("null");
+      }
       const convertDate = date.split("-").join("");
       const res = await axios({
         url: urlQuestionWeekly + convertDate,
@@ -81,7 +84,6 @@ export const questionWeekly = (date) => {
       console.log("ERROR : ", error);
       MySwal.fire({
         icon: "error",
-        title: "Please insert date",
         showConfirmButton: false,
         timer: 1500,
       });

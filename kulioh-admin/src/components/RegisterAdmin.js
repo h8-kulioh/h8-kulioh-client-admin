@@ -57,6 +57,7 @@ export default function RegisterAdmin({ page }) {
         {page === "Login" ? (
           <div className="img-box">
             <img src="logo/VINTER.png" alt="logo" />
+            <h4>VINTER</h4>
           </div>
         ) : (
           <h3 style={{ textAlign: "center" }}>{page}</h3>
