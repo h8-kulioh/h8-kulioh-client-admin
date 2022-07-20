@@ -20,7 +20,7 @@ export default function RegisterAdmin({ page }) {
   };
   const handleRegister = (e) => {
     e.preventDefault();
-    if (page === "register") {
+    if (page === "Register") {
       dispatch(registerAdmin(dataUserAdmin));
     } else {
       loginAdmin(dataUserAdmin);
@@ -62,15 +62,20 @@ export default function RegisterAdmin({ page }) {
           <h3 style={{ textAlign: "center" }}>{page}</h3>
         )}
         <form onSubmit={(e) => handleRegister(e)}>
-          <div>
-            <label className="form-label">Name</label>
-            <input
-              type="text"
-              className="form-control"
-              name="name"
-              onChange={changeData}
-            />
-          </div>
+          {page === "Register" ? (
+            <div>
+              <label className="form-label">Name</label>
+              <input
+                type="text"
+                className="form-control"
+                name="name"
+                onChange={changeData}
+              />
+            </div>
+          ) : (
+            ""
+          )}
+
           <div>
             <label className="form-label">Email</label>
             <input
@@ -136,13 +141,13 @@ export default function RegisterAdmin({ page }) {
               )}
             </div>
           </div>
-          {page === "Login" ? (
+          {/* {page === "Login" ? (
             <div>
               <input type="checkbox" className="checkbox" /> Remember Me
             </div>
           ) : (
             ""
-          )}
+          )} */}
           <br />
           <div style={{ marginTop: "10px" }} className="btn-box">
             <button type="submit" className="btn" style={{ width: "100%" }}>

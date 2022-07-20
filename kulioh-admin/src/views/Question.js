@@ -1,14 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CreateQuestion from "../components/CreateQuestion";
 import Sidebar from "../components/Sidebar";
 import TableQuestion from "../components/TableQuestion";
-import { createQuestion } from "../store/actions";
+import { createQuestion, questionDaily } from "../store/actions";
 import * as XLSX from "xlsx";
 import Swal from "sweetalert2";
 
 export default function Question() {
-  // const questions = useSelector((state) => state.questions.questions);
+  const questionsDaily = useSelector(
+    (state) => state.questionsDaily.questionsDaily
+  );
   const [releaseDate, setReleaseDate] = useState({
     releaseDate: "",
   });
@@ -67,13 +69,22 @@ export default function Question() {
         }
       });
       dispatch(createQuestion(result, releaseDate));
+      Swal.fire({
+        icon: "success",
+        title: "Success Input",
+        showConfirmButton: false,
+        timer: 1500,
+      });
     };
   }
+  useEffect(() => {
+    dispatch(questionDaily());
+  }, []);
   return (
     <div className="d-flex" id="question">
       <Sidebar />
       {getNavigate ? (
-        <TableQuestion setNavigate={setNavigate} />
+        <TableQuestion setNavigate={setNavigate} data={questionsDaily} />
       ) : (
         <CreateQuestion
           setNavigate={setNavigate}

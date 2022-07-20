@@ -1,12 +1,12 @@
-import { FETCH_QUESTION } from "../actions/actionType";
+import { FETCH_QUESTION_DAILY } from "../actions/actionType";
 
 const initialState = {
-  questions: [],
+  questionsDaily: [],
 };
-export const questionReducer = (state = initialState, action) => {
+export const questionDailyReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_QUESTION:
-      return { ...state, questions: action.payload };
+    case FETCH_QUESTION_DAILY:
+      return { ...state, questionsDaily: action.payload };
     default:
       return state;
   }

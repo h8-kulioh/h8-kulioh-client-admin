@@ -1,5 +1,11 @@
 import axios from "axios";
-import { FETCH_QUESTION, urlAdmin } from "./actionType";
+import {
+  FETCH_QUESTION_DAILY,
+  FETCH_QUESTION_WEEKLY,
+  urlAdmin,
+  urlQuestionDaily,
+  urlQuestionWeekly,
+} from "./actionType";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
@@ -19,12 +25,6 @@ export const createQuestion = (data, releaseDate) => {
           date,
         },
       });
-      MySwal.fire({
-        icon: "success",
-        title: "Success Input",
-        showConfirmButton: false,
-        timer: 1500,
-      });
     } catch (err) {
       console.log("ERROR : ", err);
     }
@@ -35,6 +35,7 @@ export const registerAdmin = (data) => {
   return async () => {
     try {
       const res = await axios.post(urlAdmin + "/register", data);
+      console.log(res);
       MySwal.fire({
         icon: "success",
         title: "Success register",
@@ -47,19 +48,57 @@ export const registerAdmin = (data) => {
   };
 };
 
-// export const questionWeekly = () => {
-//   return async () => {
-//     try {
-//       const res = await axios.get(urlWeeklyQuestion + "/user-answer");
-//       console.log(res);
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
-// };
-// export const fetchQuestionSuccess = (payload) => {
-//   return {
-//     type: FETCH_QUESTION,
-//     payload,
-//   };
-// };
+export const questionDaily = () => {
+  return async (dispatch) => {
+    try {
+      const res = await axios({
+        url: urlQuestionDaily + "/daily",
+        method: "GET",
+        headers: {
+          access_token: localStorage.getItem("access_token"),
+        },
+      });
+      dispatch(fetchQuestionDailySuccess(res.data));
+    } catch (error) {
+      console.log("ERROR : ", error);
+    }
+  };
+};
+
+export const questionWeekly = (date) => {
+  return async (dispatch) => {
+    try {
+      const convertDate = date.split("-").join("");
+      const res = await axios({
+        url: urlQuestionWeekly + convertDate,
+        method: "GET",
+        headers: {
+          access_token: localStorage.getItem("access_token"),
+        },
+      });
+      dispatch(fetchQuestionWeeklySuccess(res.data));
+    } catch (error) {
+      console.log("ERROR : ", error);
+      MySwal.fire({
+        icon: "error",
+        title: "Please insert date",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    }
+  };
+};
+
+export const fetchQuestionDailySuccess = (payload) => {
+  return {
+    type: FETCH_QUESTION_DAILY,
+    payload,
+  };
+};
+
+export const fetchQuestionWeeklySuccess = (payload) => {
+  return {
+    type: FETCH_QUESTION_WEEKLY,
+    payload,
+  };
+};

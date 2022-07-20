@@ -1,0 +1,22 @@
+.table-box .title {
+  position: relative;
+}
+/* .table-box .title form {
+  position: absolute;
+  top: 0;
+  right: 8px;
+} */
+.table-box .title form input {
+  border-radius: 5px 0px 0 5px;
+  background: #36222200;
+  color: #fff;
+}
+.table-box .title form button {
+  border-radius: 0 5px 5px 0;
+  background: rgb(19, 109, 243);
+}
+.not_found {
+  margin-top: 10%;
+  text-align: center;
+  color: rgb(211, 209, 209);
+}

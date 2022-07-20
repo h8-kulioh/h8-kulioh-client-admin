@@ -1,0 +1,11 @@
+.table-question .button button {
+  border: 0ch;
+  border-radius: 5px;
+  background-color: #362222;
+  padding: 5px;
+  margin-right: 10px;
+}
+.table-question .button button:hover {
+  background-color: #36222293;
+  color: rgb(145, 140, 140);
+}

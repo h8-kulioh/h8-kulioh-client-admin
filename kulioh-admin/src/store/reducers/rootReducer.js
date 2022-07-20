@@ -1,8 +1,10 @@
 import { combineReducers } from "redux";
-import { questionReducer } from "./questionReducer";
+import { questionDailyReducer } from "./questionReducer";
+import { questionWeeklyReducer } from "./questionWeeklyReducer";
 import { userReducer } from "./userRedicer";
 
 export const rootReducer = combineReducers({
-  questions: questionReducer,
+  questionsDaily: questionDailyReducer,
+  questionWeekly: questionWeeklyReducer,
   users: userReducer,
 });
