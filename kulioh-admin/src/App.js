@@ -16,7 +16,7 @@ function App() {
             path="/"
             element={
               <Protected>
-                <Dashboard />
+                <Question />
               </Protected>
             }
           />

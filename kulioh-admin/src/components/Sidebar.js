@@ -31,10 +31,10 @@ export default function Sidebar() {
           <span className="tooltip">Search</span>
         </li>
         <li>
-          <Link to={"/"} href="#">
+          <a>
             <i className="bx bx-grid-alt"></i>
             <span className="links_name">Dashboard</span>
-          </Link>
+          </a>
           <span className="tooltip">Dashboard</span>
         </li>
         <li>

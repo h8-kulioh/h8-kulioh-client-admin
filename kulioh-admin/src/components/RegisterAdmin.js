@@ -30,6 +30,7 @@ export default function RegisterAdmin({ page }) {
   async function loginAdmin(obj) {
     try {
       const res = await axios.post(urlAdmin + "/login", obj);
+      console.log("res: ", res);
       localStorage.setItem("access_token", res.data.access_token);
       Swal.fire({
         icon: "success",

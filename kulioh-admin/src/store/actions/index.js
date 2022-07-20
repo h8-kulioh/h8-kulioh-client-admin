@@ -79,11 +79,20 @@ export const questionWeekly = (date) => {
           access_token: localStorage.getItem("access_token"),
         },
       });
+      if (res.data.length === 0) {
+        MySwal.fire({
+          icon: "error",
+          title: "Not found",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
       dispatch(fetchQuestionWeeklySuccess(res.data));
     } catch (error) {
       console.log("ERROR : ", error);
       MySwal.fire({
         icon: "error",
+        title: "please input date",
         showConfirmButton: false,
         timer: 1500,
       });
